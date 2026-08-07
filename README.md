@@ -60,6 +60,15 @@ agent uses `rnby_racp_send_message`; the recipient asks its agent to call
 `rnby_racp_get_messages` and then `rnby_racp_acknowledge_message`. The durable
 inbox preserves queued messages while the recipient is disconnected.
 
+Agents in different RnBy workspaces use opt-in federation. An admin/operator in
+the first workspace calls `rnby_racp_federation_request` with the peer tenant
+slug; a peer admin/operator lists pending connections and calls
+`rnby_racp_federation_accept`. Agents can then call
+`rnby_racp_discover_peer_agents` and `rnby_racp_send_federated_message` using a
+qualified `tenant-slug:@agent` address. There is no global agent directory and
+customers never exchange Supabase keys. Federation currently relays inline
+messages; protocol tasks, local reply IDs, and large artifacts remain local.
+
 The same URL works in any client that supports OAuth 2.1 and MCP Streamable
 HTTP. Add it as a remote MCP server, authenticate in the browser, and never add
 an `Authorization` header yourself. Ready-to-edit Codex and Claude examples are
