@@ -1,0 +1,42 @@
+{
+  "name": "@rnby/racp-client",
+  "version": "0.1.0",
+  "description": "Event-driven, adapter-based RACP agent client.",
+  "license": "MIT",
+  "author": "RnBy",
+  "keywords": ["a2a", "agent", "client", "event-driven", "racp"],
+  "homepage": "https://github.com/rnby-ai/racp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rnby-ai/racp.git",
+    "directory": "packages/client"
+  },
+  "bugs": {
+    "url": "https://github.com/rnby-ai/racp/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "!dist/.tsbuildinfo", "README.md", "LICENSE"],
+  "engines": { "node": ">=22.0.0" },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@rnby/racp-codec": "0.1.0"
+  },
+  "scripts": {
+    "build": "tsc -b ../codec/tsconfig.json tsconfig.json",
+    "prepack": "npm run build",
+    "test": "node --test ../../tests/client.test.mjs ../../tests/task-events.test.mjs",
+    "pack:check": "npm pack --dry-run"
+  }
+}

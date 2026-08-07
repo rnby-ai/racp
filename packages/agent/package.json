@@ -1,0 +1,64 @@
+{
+  "name": "@rnby/racp-agent",
+  "version": "0.1.0",
+  "description": "Programmatic RACP agent factory with a testing-only codec CLI.",
+  "license": "MIT",
+  "author": "RnBy",
+  "keywords": ["a2a", "agent", "mcp", "oauth", "racp", "realtime"],
+  "homepage": "https://github.com/rnby-ai/racp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rnby-ai/racp.git",
+    "directory": "packages/agent"
+  },
+  "bugs": {
+    "url": "https://github.com/rnby-ai/racp/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./hosted": {
+      "types": "./dist/hosted-adapter.d.ts",
+      "import": "./dist/hosted-adapter.js"
+    },
+    "./mcp": {
+      "types": "./dist/mcp.d.ts",
+      "import": "./dist/mcp.js"
+    },
+    "./oauth": {
+      "types": "./dist/oauth.d.ts",
+      "import": "./dist/oauth.js"
+    },
+    "./cli": {
+      "types": "./dist/cli.d.ts",
+      "import": "./dist/cli.js"
+    }
+  },
+  "bin": {
+    "racp-agent": "dist/cli.js"
+  },
+  "files": ["dist", "!dist/.tsbuildinfo", "README.md", "LICENSE"],
+  "engines": { "node": ">=22.0.0" },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "@rnby/racp-client": "0.1.0",
+    "@rnby/racp-codec": "0.1.0"
+  },
+  "scripts": {
+    "build": "tsc -b ../codec/tsconfig.json ../client/tsconfig.json tsconfig.json && node scripts/prepare-package.mjs",
+    "prepack": "npm run build",
+    "test": "node --test ../../tests/agent.test.mjs ../../tests/oauth.test.mjs ../../tests/hosted-adapter.test.mjs",
+    "pack:check": "npm pack --dry-run"
+  }
+}

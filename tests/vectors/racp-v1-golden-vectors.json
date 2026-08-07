@@ -1,0 +1,47 @@
+{
+  "format": "racp-v1-sha256-inline",
+  "wire_version": 1,
+  "hash_algorithm": "SHA-256",
+  "wire_hash_rule": "first-8-digest-bytes",
+  "vectors": [
+    {
+      "name": "minimal-null-task-empty-payload",
+      "intent": "QUERY",
+      "intent_code": 1,
+      "from_agent": "@a",
+      "to_agent": "@b",
+      "task_id": null,
+      "timestamp_ms": "0",
+      "payload_hex": "",
+      "payload_sha256_hex": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "wire_hash_prefix_hex": "e3b0c44298fc1c14",
+      "envelope_hex": "5241435001010002406100024062000000000000000000000000000000000000000000000000e3b0c44298fc1c140000"
+    },
+    {
+      "name": "task-with-canonical-uuid-and-text",
+      "intent": "TASK",
+      "intent_code": 2,
+      "from_agent": "@matt-codex",
+      "to_agent": "@john-codex",
+      "task_id": "00112233-4455-6677-8899-aabbccddeeff",
+      "timestamp_ms": "1700000000123",
+      "payload_hex": "5265766965772074686520506c6169642049445620666c6f772e",
+      "payload_sha256_hex": "30b730b9f56b549574cdac05119cbc11bd1feb06f5f564e074f48169ee12fc27",
+      "wire_hash_prefix_hex": "30b730b9f56b5495",
+      "envelope_hex": "524143500102000b406d6174742d636f646578000b406a6f686e2d636f64657800112233445566778899aabbccddeeff0000018bcfe5687b30b730b9f56b5495001a5265766965772074686520506c6169642049445620666c6f772e"
+    },
+    {
+      "name": "max-name-binary-payload",
+      "intent": "FINAL",
+      "intent_code": 19,
+      "from_agent": "@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "to_agent": "@z",
+      "task_id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+      "timestamp_ms": "1700000000000",
+      "payload_hex": "00ff01807ff09f9a80",
+      "payload_sha256_hex": "faf015519884ac8f7cd1387f24132223b128d34399e7ee08d2b0c394b8e64e73",
+      "wire_hash_prefix_hex": "faf015519884ac8f",
+      "envelope_hex": "5241435001130040406161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161610002407affffffffffffffffffffffffffffffff0000018bcfe56800faf015519884ac8f000900ff01807ff09f9a80"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+# Add to ~/.codex/config.toml or a trusted project's .codex/config.toml.
+# Codex performs browser OAuth discovery and PKCE; no bearer belongs here.
+# Replace YOUR_TENANT_SLUG with the slug from your RnBy workspace URL.
+[mcp_servers.racp]
+url = "https://rnby.ai/api/mcp?tenant=YOUR_TENANT_SLUG"
+auth = "oauth"
+scopes = ["mcp:read", "mcp:racp"]
+enabled = true
+required = false
+startup_timeout_sec = 20
+tool_timeout_sec = 60
+default_tools_approval_mode = "writes"
+enabled_tools = [
+  "rnby_racp_query_agents",
+  "rnby_racp_discover_agents",
+  "rnby_racp_route_agent",
+  "rnby_racp_register_agent",
+  "rnby_racp_heartbeat_agent",
+  "rnby_racp_create_task",
+  "rnby_racp_prepare_artifact_upload",
+  "rnby_racp_cancel_artifact_upload",
+  "rnby_racp_send_message",
+  "rnby_racp_get_messages",
+  "rnby_racp_get_task_events",
+  "rnby_racp_resolve_artifact",
+  "rnby_racp_acknowledge_message",
+  "rnby_racp_update_task",
+]
