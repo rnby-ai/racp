@@ -1,0 +1,64 @@
+name: Bug report
+description: Report a reproducible problem in a public RACP package.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve RACP. Never include credentials, access tokens, tenant identifiers, or private message payloads.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - "@rnby/racp-codec"
+        - "@rnby/racp-client"
+        - "@rnby/racp-bridge"
+        - "@rnby/racp-agent"
+        - Hosted MCP endpoint
+        - Documentation or examples
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime
+      description: Node.js or Python version and operating system.
+      placeholder: Node.js 22.23.1 on macOS 15
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Include the smallest safe example and exact commands needed to reproduce the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed credentials, tokens, private tenant data, and private message payloads.
+          required: true

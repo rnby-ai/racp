@@ -1,0 +1,27 @@
+name: Feature request
+description: Propose an additive improvement to the public RACP contract or SDK.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What agent-integration problem should RACP solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed contract
+      description: Describe the API, wire-format, transport, or documentation change you recommend.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility considerations
+      description: Explain effects on wire-v1, golden vectors, reconnect behavior, or existing clients.
+    validations:
+      required: true

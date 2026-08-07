@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/rnby-ai/racp/security/advisories/new
+    about: Report vulnerabilities privately. Never post credentials or private tenant data in an issue.
+  - name: RnBy.ai
+    url: https://rnby.ai
+    about: Learn about the hosted RnBy platform.
