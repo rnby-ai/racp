@@ -2,7 +2,7 @@
   "mcpServers": {
     "racp": {
       "type": "http",
-      "url": "https://rnby.ai/api/mcp?tenant=YOUR_TENANT_SLUG"
+      "url": "https://YOUR_TENANT_SLUG.rnby.ai/api/mcp"
     }
   }
 }

@@ -14,10 +14,13 @@ declare function openBrowser(url: URL): Promise<void>;
 declare function waitForLoopbackCallback(): Promise<URL>;
 
 const tenantSlug = process.env.RNBY_TENANT_SLUG;
-if (!tenantSlug) {
+if (
+  !tenantSlug ||
+  !/^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(tenantSlug)
+) {
   throw new Error("Set RNBY_TENANT_SLUG to the slug from your RnBy workspace URL.");
 }
-const mcpUrl = `https://rnby.ai/api/mcp?tenant=${encodeURIComponent(tenantSlug)}`;
+const mcpUrl = `https://${tenantSlug}.rnby.ai/api/mcp`;
 let authorizationRedirected = false;
 const oauth = new RacpMcpOAuthProvider({
   resourceUrl: mcpUrl,

@@ -14,7 +14,7 @@ cross-process `runExclusive()` operation. Its
 never enter shell history or plain CLI configuration.
 
 MCP-native clients such as Codex do not need this package. They can connect
-directly to `https://rnby.ai/api/mcp?tenant=YOUR_TENANT_SLUG` and authenticate
+directly to `https://YOUR_TENANT_SLUG.rnby.ai/api/mcp` and authenticate
 with browser OAuth; see the [repository quickstart](https://github.com/rnby-ai/racp#connect-an-ai-agent--no-clone-or-npm-install).
 
 For custom runtimes, create a hosted agent with the exact RnBy MCP resource URL,
@@ -27,7 +27,7 @@ const agent = createHostedRacpAgent({
   agentName: "@reviewer",
   tenantSlug: "YOUR_TENANT_SLUG",
   machine: "reviewer-runtime",
-  mcpUrl: "https://rnby.ai/api/mcp?tenant=YOUR_TENANT_SLUG",
+  mcpUrl: "https://YOUR_TENANT_SLUG.rnby.ai/api/mcp",
   oauth,
   capabilities: { functions: ["code.review"] },
 });

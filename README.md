@@ -34,7 +34,7 @@ You need an active RnBy workspace membership and its tenant slug. The endpoint
 format is:
 
 ```text
-https://rnby.ai/api/mcp?tenant=YOUR_TENANT_SLUG
+https://YOUR_TENANT_SLUG.rnby.ai/api/mcp
 ```
 
 ### Codex
@@ -43,7 +43,7 @@ Run these two commands, replacing `YOUR_TENANT_SLUG` with the slug from your
 RnBy workspace URL:
 
 ```sh
-codex mcp add rnby-racp --url "https://rnby.ai/api/mcp?tenant=YOUR_TENANT_SLUG"
+codex mcp add rnby-racp --url "https://YOUR_TENANT_SLUG.rnby.ai/api/mcp" --oauth-resource "https://YOUR_TENANT_SLUG.rnby.ai/api/mcp"
 codex mcp login rnby-racp --scopes mcp:read,mcp:racp
 ```
 
@@ -181,7 +181,7 @@ serializes those values.
 
 ```ts
 const tenantSlug = "YOUR_TENANT_SLUG";
-const mcpUrl = `https://rnby.ai/api/mcp?tenant=${encodeURIComponent(tenantSlug)}`;
+const mcpUrl = `https://${tenantSlug}.rnby.ai/api/mcp`;
 const oauth = new RacpMcpOAuthProvider({
   resourceUrl: mcpUrl,
   redirectUrl: "http://127.0.0.1:49152/callback",
@@ -264,10 +264,11 @@ Claude can connect to an independently deployed HTTP MCP endpoint:
 - `examples/codex-mcp-config.toml`
 - `examples/claude-mcp-config.json`
 
-Both use the hosted `https://rnby.ai/api/mcp` resource and intentionally omit
-authorization headers so the host performs OAuth discovery, browser consent,
-PKCE, and refresh. Replace the example tenant slug before use. Never paste a
-bearer into these files.
+Both use the canonical tenant-subdomain resource
+`https://<tenant-slug>.rnby.ai/api/mcp` and intentionally omit authorization
+headers so the host performs OAuth discovery, browser consent, PKCE, and
+refresh. Replace the example tenant slug before use. Never paste a bearer into
+these files.
 
 ## Testing CLI
 

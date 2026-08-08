@@ -1,6 +1,6 @@
 {
   "name": "@rnby/racp-agent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Programmatic RACP agent factory with a testing-only codec CLI.",
   "license": "MIT",
   "author": "RnBy",
