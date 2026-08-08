@@ -2,7 +2,8 @@
 # Codex performs browser OAuth discovery and PKCE; no bearer belongs here.
 # Replace YOUR_TENANT_SLUG with the slug from your RnBy workspace URL.
 [mcp_servers.racp]
-url = "https://rnby.ai/api/mcp?tenant=YOUR_TENANT_SLUG"
+url = "https://YOUR_TENANT_SLUG.rnby.ai/api/mcp"
+oauth_resource = "https://YOUR_TENANT_SLUG.rnby.ai/api/mcp"
 auth = "oauth"
 scopes = ["mcp:read", "mcp:racp"]
 enabled = true
