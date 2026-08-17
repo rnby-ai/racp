@@ -39,7 +39,7 @@
     "release:dry-run": "npm run build && npm pack --dry-run --workspace @rnby/racp-codec && npm pack --dry-run --workspace @rnby/racp-client && npm pack --dry-run --workspace @rnby/racp-bridge && npm pack --dry-run --workspace @rnby/racp-agent"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
+    "@types/node": "^26.2.0",
     "typescript": "^5.9.0"
   }
 }
