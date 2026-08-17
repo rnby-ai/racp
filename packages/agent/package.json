@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/client": "2.0.0",
-    "@supabase/supabase-js": "^2.49.4",
+    "@supabase/supabase-js": "^2.112.3",
     "@rnby/racp-client": "0.1.0",
     "@rnby/racp-codec": "0.1.0"
   },
